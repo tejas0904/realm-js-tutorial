@@ -93,8 +93,7 @@ export async function run(devtools = false) {
   // Start the webpack-dev-server
   const devServer = new WebpackDevServer(compiler, {
     proxy: { "/api": baseUrl },
-    historyApiFallback: true,
-    contentBase: path.join(__dirname, "../node_modules/realm-web"),
+    contentBase: path.dirname(require.resolve("realm-web/package.json")),
     contentBasePublicPath: "/realm-web",
   });
 
