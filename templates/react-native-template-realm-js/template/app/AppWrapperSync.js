@@ -1,6 +1,7 @@
 import React, {useCallback, useRef, useState} from 'react';
 import {Realm} from '@realm/react';
 import {Pressable, SafeAreaView, StyleSheet, Text} from 'react-native';
+import {createDrawerNavigator} from "@react-navigation/drawer";
 
 import {TaskRealmContext} from './models';
 import {LoginScreen, AuthState} from './components/LoginScreen';
@@ -82,6 +83,8 @@ export const AppWrapperSync = ({appId}) => {
       />
     );
   }
+
+  const DrawerStack = createDrawerNavigator();
 
   // If we are logged in, add the sync configuration the the RealmProvider and render the app
   return (
